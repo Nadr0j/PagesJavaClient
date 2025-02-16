@@ -46,10 +46,10 @@ import java.util.Set;
 import com.example.pagesclient.JSON;
 
 /**
- * WritePageResponse
+ * GetPageRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-15T22:16:01.555248-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class WritePageResponse {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-16T11:42:15.715901-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class GetPageRequest {
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
   @javax.annotation.Nonnull
@@ -65,10 +65,10 @@ public class WritePageResponse {
   @javax.annotation.Nonnull
   private String name;
 
-  public WritePageResponse() {
+  public GetPageRequest() {
   }
 
-  public WritePageResponse user(@javax.annotation.Nonnull String user) {
+  public GetPageRequest user(@javax.annotation.Nonnull String user) {
     this.user = user;
     return this;
   }
@@ -87,7 +87,7 @@ public class WritePageResponse {
   }
 
 
-  public WritePageResponse namespace(@javax.annotation.Nonnull String namespace) {
+  public GetPageRequest namespace(@javax.annotation.Nonnull String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -106,7 +106,7 @@ public class WritePageResponse {
   }
 
 
-  public WritePageResponse name(@javax.annotation.Nonnull String name) {
+  public GetPageRequest name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -134,10 +134,10 @@ public class WritePageResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WritePageResponse writePageResponse = (WritePageResponse) o;
-    return Objects.equals(this.user, writePageResponse.user) &&
-        Objects.equals(this.namespace, writePageResponse.namespace) &&
-        Objects.equals(this.name, writePageResponse.name);
+    GetPageRequest getPageRequest = (GetPageRequest) o;
+    return Objects.equals(this.user, getPageRequest.user) &&
+        Objects.equals(this.namespace, getPageRequest.namespace) &&
+        Objects.equals(this.name, getPageRequest.name);
   }
 
   @Override
@@ -148,7 +148,7 @@ public class WritePageResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WritePageResponse {\n");
+    sb.append("class GetPageRequest {\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -189,25 +189,25 @@ public class WritePageResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WritePageResponse
+   * @throws IOException if the JSON Element is invalid with respect to GetPageRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!WritePageResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WritePageResponse is not found in the empty JSON string", WritePageResponse.openapiRequiredFields.toString()));
+        if (!GetPageRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetPageRequest is not found in the empty JSON string", GetPageRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WritePageResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WritePageResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!GetPageRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetPageRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WritePageResponse.openapiRequiredFields) {
+      for (String requiredField : GetPageRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -228,22 +228,22 @@ public class WritePageResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WritePageResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WritePageResponse' and its subtypes
+       if (!GetPageRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetPageRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WritePageResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WritePageResponse.class));
+       final TypeAdapter<GetPageRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetPageRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WritePageResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetPageRequest>() {
            @Override
-           public void write(JsonWriter out, WritePageResponse value) throws IOException {
+           public void write(JsonWriter out, GetPageRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public WritePageResponse read(JsonReader in) throws IOException {
+           public GetPageRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -254,18 +254,18 @@ public class WritePageResponse {
   }
 
   /**
-   * Create an instance of WritePageResponse given an JSON string
+   * Create an instance of GetPageRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of WritePageResponse
-   * @throws IOException if the JSON string is invalid with respect to WritePageResponse
+   * @return An instance of GetPageRequest
+   * @throws IOException if the JSON string is invalid with respect to GetPageRequest
    */
-  public static WritePageResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WritePageResponse.class);
+  public static GetPageRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetPageRequest.class);
   }
 
   /**
-   * Convert an instance of WritePageResponse to an JSON string
+   * Convert an instance of GetPageRequest to an JSON string
    *
    * @return JSON string
    */

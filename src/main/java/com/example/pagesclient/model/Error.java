@@ -14,7 +14,6 @@
 package com.example.pagesclient.model;
 
 import java.util.Objects;
-import com.example.pagesclient.model.Page;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,34 +46,34 @@ import java.util.Set;
 import com.example.pagesclient.JSON;
 
 /**
- * GetPageResponse
+ * Error
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-15T22:16:01.555248-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class GetPageResponse {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-16T11:42:15.715901-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class Error {
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
   @javax.annotation.Nonnull
-  private Page page;
+  private String error;
 
-  public GetPageResponse() {
+  public Error() {
   }
 
-  public GetPageResponse page(@javax.annotation.Nonnull Page page) {
-    this.page = page;
+  public Error error(@javax.annotation.Nonnull String error) {
+    this.error = error;
     return this;
   }
 
   /**
-   * Get page
-   * @return page
+   * Get error
+   * @return error
    */
   @javax.annotation.Nonnull
-  public Page getPage() {
-    return page;
+  public String getError() {
+    return error;
   }
 
-  public void setPage(@javax.annotation.Nonnull Page page) {
-    this.page = page;
+  public void setError(@javax.annotation.Nonnull String error) {
+    this.error = error;
   }
 
 
@@ -87,20 +86,20 @@ public class GetPageResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetPageResponse getPageResponse = (GetPageResponse) o;
-    return Objects.equals(this.page, getPageResponse.page);
+    Error error = (Error) o;
+    return Objects.equals(this.error, error.error);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page);
+    return Objects.hash(error);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetPageResponse {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("class Error {\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -123,65 +122,66 @@ public class GetPageResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("page");
+    openapiFields.add("error");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("page");
+    openapiRequiredFields.add("error");
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetPageResponse
+   * @throws IOException if the JSON Element is invalid with respect to Error
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetPageResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetPageResponse is not found in the empty JSON string", GetPageResponse.openapiRequiredFields.toString()));
+        if (!Error.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Error is not found in the empty JSON string", Error.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GetPageResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetPageResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!Error.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Error` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetPageResponse.openapiRequiredFields) {
+      for (String requiredField : Error.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `page`
-      Page.validateJsonElement(jsonObj.get("page"));
+      if (!jsonObj.get("error").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetPageResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetPageResponse' and its subtypes
+       if (!Error.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Error' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetPageResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetPageResponse.class));
+       final TypeAdapter<Error> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Error.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetPageResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<Error>() {
            @Override
-           public void write(JsonWriter out, GetPageResponse value) throws IOException {
+           public void write(JsonWriter out, Error value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetPageResponse read(JsonReader in) throws IOException {
+           public Error read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -192,18 +192,18 @@ public class GetPageResponse {
   }
 
   /**
-   * Create an instance of GetPageResponse given an JSON string
+   * Create an instance of Error given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetPageResponse
-   * @throws IOException if the JSON string is invalid with respect to GetPageResponse
+   * @return An instance of Error
+   * @throws IOException if the JSON string is invalid with respect to Error
    */
-  public static GetPageResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetPageResponse.class);
+  public static Error fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Error.class);
   }
 
   /**
-   * Convert an instance of GetPageResponse to an JSON string
+   * Convert an instance of Error to an JSON string
    *
    * @return JSON string
    */

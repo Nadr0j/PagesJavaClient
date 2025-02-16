@@ -46,10 +46,10 @@ import java.util.Set;
 import com.example.pagesclient.JSON;
 
 /**
- * WritePageRequest
+ * Page
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-15T22:16:01.555248-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class WritePageRequest {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-16T11:42:15.715901-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class Page {
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
   @javax.annotation.Nonnull
@@ -70,15 +70,10 @@ public class WritePageRequest {
   @javax.annotation.Nonnull
   private String content;
 
-  public static final String SERIALIZED_NAME_OVERWRITE_EXISTING = "overwriteExisting";
-  @SerializedName(SERIALIZED_NAME_OVERWRITE_EXISTING)
-  @javax.annotation.Nullable
-  private Boolean overwriteExisting;
-
-  public WritePageRequest() {
+  public Page() {
   }
 
-  public WritePageRequest user(@javax.annotation.Nonnull String user) {
+  public Page user(@javax.annotation.Nonnull String user) {
     this.user = user;
     return this;
   }
@@ -97,7 +92,7 @@ public class WritePageRequest {
   }
 
 
-  public WritePageRequest namespace(@javax.annotation.Nonnull String namespace) {
+  public Page namespace(@javax.annotation.Nonnull String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -116,7 +111,7 @@ public class WritePageRequest {
   }
 
 
-  public WritePageRequest name(@javax.annotation.Nonnull String name) {
+  public Page name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -135,7 +130,7 @@ public class WritePageRequest {
   }
 
 
-  public WritePageRequest content(@javax.annotation.Nonnull String content) {
+  public Page content(@javax.annotation.Nonnull String content) {
     this.content = content;
     return this;
   }
@@ -154,25 +149,6 @@ public class WritePageRequest {
   }
 
 
-  public WritePageRequest overwriteExisting(@javax.annotation.Nullable Boolean overwriteExisting) {
-    this.overwriteExisting = overwriteExisting;
-    return this;
-  }
-
-  /**
-   * Get overwriteExisting
-   * @return overwriteExisting
-   */
-  @javax.annotation.Nullable
-  public Boolean getOverwriteExisting() {
-    return overwriteExisting;
-  }
-
-  public void setOverwriteExisting(@javax.annotation.Nullable Boolean overwriteExisting) {
-    this.overwriteExisting = overwriteExisting;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -182,28 +158,26 @@ public class WritePageRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WritePageRequest writePageRequest = (WritePageRequest) o;
-    return Objects.equals(this.user, writePageRequest.user) &&
-        Objects.equals(this.namespace, writePageRequest.namespace) &&
-        Objects.equals(this.name, writePageRequest.name) &&
-        Objects.equals(this.content, writePageRequest.content) &&
-        Objects.equals(this.overwriteExisting, writePageRequest.overwriteExisting);
+    Page page = (Page) o;
+    return Objects.equals(this.user, page.user) &&
+        Objects.equals(this.namespace, page.namespace) &&
+        Objects.equals(this.name, page.name) &&
+        Objects.equals(this.content, page.content);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, namespace, name, content, overwriteExisting);
+    return Objects.hash(user, namespace, name, content);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WritePageRequest {\n");
+    sb.append("class Page {\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    overwriteExisting: ").append(toIndentedString(overwriteExisting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,7 +204,6 @@ public class WritePageRequest {
     openapiFields.add("namespace");
     openapiFields.add("name");
     openapiFields.add("content");
-    openapiFields.add("overwriteExisting");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -244,25 +217,25 @@ public class WritePageRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WritePageRequest
+   * @throws IOException if the JSON Element is invalid with respect to Page
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!WritePageRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WritePageRequest is not found in the empty JSON string", WritePageRequest.openapiRequiredFields.toString()));
+        if (!Page.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Page is not found in the empty JSON string", Page.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WritePageRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WritePageRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!Page.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Page` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WritePageRequest.openapiRequiredFields) {
+      for (String requiredField : Page.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -286,22 +259,22 @@ public class WritePageRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WritePageRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WritePageRequest' and its subtypes
+       if (!Page.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Page' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WritePageRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WritePageRequest.class));
+       final TypeAdapter<Page> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Page.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WritePageRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<Page>() {
            @Override
-           public void write(JsonWriter out, WritePageRequest value) throws IOException {
+           public void write(JsonWriter out, Page value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public WritePageRequest read(JsonReader in) throws IOException {
+           public Page read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -312,18 +285,18 @@ public class WritePageRequest {
   }
 
   /**
-   * Create an instance of WritePageRequest given an JSON string
+   * Create an instance of Page given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of WritePageRequest
-   * @throws IOException if the JSON string is invalid with respect to WritePageRequest
+   * @return An instance of Page
+   * @throws IOException if the JSON string is invalid with respect to Page
    */
-  public static WritePageRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WritePageRequest.class);
+  public static Page fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Page.class);
   }
 
   /**
-   * Convert an instance of WritePageRequest to an JSON string
+   * Convert an instance of Page to an JSON string
    *
    * @return JSON string
    */
