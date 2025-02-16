@@ -19,11 +19,11 @@ Returns a previously written page based on user, namespace, and page name.
 ### Example
 ```java
 // Import classes:
-import com.example.pagesclient.ApiClient;
-import com.example.pagesclient.ApiException;
-import com.example.pagesclient.Configuration;
-import com.example.pagesclient.models.*;
-import com.example.pagesclient.api.DefaultApi;
+import com.github.nadr0j.pagesclient.ApiClient;
+import com.github.nadr0j.pagesclient.ApiException;
+import com.github.nadr0j.pagesclient.Configuration;
+import com.github.nadr0j.pagesclient.models.*;
+import com.github.nadr0j.pagesclient.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -84,11 +84,11 @@ Writes a new page or updates an existing page based on user, namespace, and page
 ### Example
 ```java
 // Import classes:
-import com.example.pagesclient.ApiClient;
-import com.example.pagesclient.ApiException;
-import com.example.pagesclient.Configuration;
-import com.example.pagesclient.models.*;
-import com.example.pagesclient.api.DefaultApi;
+import com.github.nadr0j.pagesclient.ApiClient;
+import com.github.nadr0j.pagesclient.ApiException;
+import com.github.nadr0j.pagesclient.Configuration;
+import com.github.nadr0j.pagesclient.models.*;
+import com.github.nadr0j.pagesclient.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {

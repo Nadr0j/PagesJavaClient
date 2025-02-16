@@ -2,7 +2,7 @@
 
 Pages
 - API version: 1.0.0
-  - Build date: 2025-02-16T11:42:15.715901-08:00[America/Los_Angeles]
+  - Build date: 2025-02-16T12:42:44.516602-08:00[America/Los_Angeles]
   - Generator version: 7.11.0
 
 The control plane for Pages
@@ -81,11 +81,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import com.example.pagesclient.ApiClient;
-import com.example.pagesclient.ApiException;
-import com.example.pagesclient.Configuration;
-import com.example.pagesclient.model.*;
-import com.example.pagesclient.api.DefaultApi;
+import com.github.nadr0j.pagesclient.ApiClient;
+import com.github.nadr0j.pagesclient.ApiException;
+import com.github.nadr0j.pagesclient.Configuration;
+import com.github.nadr0j.pagesclient.model.*;
+import com.github.nadr0j.pagesclient.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
