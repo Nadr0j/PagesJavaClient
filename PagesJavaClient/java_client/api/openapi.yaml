@@ -1,0 +1,195 @@
+openapi: 3.0.0
+info:
+  description: The control plane for Pages
+  title: Pages
+  version: 1.0.0
+servers:
+- description: Beta Server
+  url: http://pages.beta.jws.com
+- description: Production Server
+  url: https://pages.prod.jws.com
+paths:
+  /pages/getPage:
+    post:
+      description: "Returns a previously written page based on user, namespace, and\
+        \ page name."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetPageRequest'
+        description: "Request body containing user, namespace, and page name."
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPageResponse'
+          description: Successfully fetches a page.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "Invalid input, object invalid."
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Page not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      summary: Gets a page.
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /pages/writePage:
+    post:
+      description: "Writes a new page or updates an existing page based on user, namespace,\
+        \ and page name."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WritePageRequest'
+        description: "Request body containing user, namespace, page name, and content."
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WritePageResponse'
+          description: Successfully written or updated a page.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: "Invalid input, object invalid."
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Page already exists and overwriteExisting is false
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      summary: Writes a page.
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    Error:
+      example:
+        error: error
+      properties:
+        error:
+          type: string
+      required:
+      - error
+      type: object
+    Page:
+      example:
+        namespace: namespace
+        name: name
+        user: user
+        content: content
+      properties:
+        user:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+        content:
+          type: string
+      required:
+      - content
+      - name
+      - namespace
+      - user
+      type: object
+    GetPageRequest:
+      example:
+        namespace: namespace
+        name: name
+        user: user
+      properties:
+        user:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      - namespace
+      - user
+      type: object
+    GetPageResponse:
+      example:
+        page:
+          namespace: namespace
+          name: name
+          user: user
+          content: content
+      properties:
+        page:
+          $ref: '#/components/schemas/Page'
+      required:
+      - page
+      type: object
+    WritePageRequest:
+      example:
+        overwriteExisting: true
+        namespace: namespace
+        name: name
+        user: user
+        content: content
+      properties:
+        user:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+        content:
+          type: string
+        overwriteExisting:
+          type: boolean
+      required:
+      - content
+      - name
+      - namespace
+      - user
+      type: object
+    WritePageResponse:
+      example:
+        namespace: namespace
+        name: name
+        user: user
+      properties:
+        user:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      - namespace
+      - user
+      type: object
+
